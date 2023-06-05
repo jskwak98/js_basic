@@ -1,8 +1,19 @@
-const a = 5;
-const b = 2;
-const str = "Is it"
+const calculator = {
+    plus: function (a, b){
+        return a + b;
+    },
+    minus: function (a, b){
+        return a + b;
+    },
+    multiply: function (a, b){
+        return a * b;
+    },
+    divide: function (a, b){
+        return a / b;
+    },
+    power: function (a, b){
+        return a ** b;
+    },
+}
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log(str + " true?")
+console.log(calculator.power(2, 3));
