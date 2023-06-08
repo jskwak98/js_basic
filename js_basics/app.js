@@ -17,3 +17,6 @@ console.log(titles);
 const idSel = document.querySelector("#helloid");
 console.log(idSel);
 // <h3 id="helloid">grab me by id</h3>
+
+idSel.style.color = "blue";
+// you can change css style of object on the javascript level.
