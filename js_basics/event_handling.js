@@ -12,11 +12,11 @@ function handleTitleClick(){
 }
 
 function handleMouseEnter(){
-    title.style.color = "black";
+    title.style.color = "white";
 }
 
 function handleMouseLeave(){
-    title.style.color = "white";
+    title.style.color = "black";
 }
 
 
@@ -29,3 +29,29 @@ console.dir(title);
 
 title.addEventListener("mouseenter", handleMouseEnter);
 title.addEventListener("mouseleave", handleMouseLeave);
+
+function handleWindowResize(){
+    document.body.style.backgroundColor = "tomato";
+    // you can get body, header, title using document
+}
+window.addEventListener("resize", handleWindowResize);
+
+
+function handleWindowCopy(){
+    alert("You copied");
+}
+window.addEventListener("copy", handleWindowCopy);
+
+//connection events
+
+function handleWindowOffline(){
+    alert("You are offline");
+}
+
+window.addEventListener("offline", handleWindowOffline);
+
+function handleWindowOnline(){
+    alert("You are online");
+}
+
+window.addEventListener("online", handleWindowOnline);
