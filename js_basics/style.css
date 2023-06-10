@@ -1,3 +1,13 @@
 body {
     background-color: beige;
 }
+
+h1 {
+    color: cornflowerblue;
+    transition: color .5s ease-in-out;
+}
+
+.clicked {
+    /*if this class is given to any object the color becomes tomato*/
+    color: tomato;
+}
