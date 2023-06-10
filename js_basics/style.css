@@ -11,3 +11,7 @@ h1 {
     /*if this class is given to any object the color becomes tomato*/
     color: tomato;
 }
+
+.fonted {
+    font-style: italic;
+}
