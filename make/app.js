@@ -18,3 +18,13 @@ function onLoginBtnClick(){
 
 //loginButton.addEventListener("click", onLoginBtnClick);
 
+const link = document.querySelector("a");
+
+function handleLinkClick(event){
+    event.preventDefault();
+    console.log(event);
+    //PointerEvent returned with the point info where you clicked
+    alert("clicked");
+}
+
+link.addEventListener("click", handleLinkClick);
