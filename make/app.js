@@ -2,7 +2,10 @@ const loginForm = document.querySelector("#login-form");
 //find form
 const loginInput = loginForm.querySelector("input");
 const loginButton = loginForm.querySelector("button");
+const greeting = document.querySelector("#greeting")
 // then find elements inside the div form
+
+const HIDDEN_CLASSNAME = "hidden";
 
 function onLoginBtnClick(){
     // if the loginButton is just Button
@@ -20,12 +23,11 @@ function onLoginBtnClick(){
 
 function onLoginSubmit(event){
     event.preventDefault();
-    // this stops the default behaviour of any event
-    // thus submission doesn't make the browser to refresh
-    console.log(event);
-    // you get information from browser when Submit event happens
-    const val = loginInput.value;
-    console.log("hello", val);
+    const username = loginInput.value;
+    //Entering the username
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    greeting.innerText = "Hello " + username;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);

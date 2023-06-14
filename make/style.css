@@ -1,0 +1,4 @@
+.hidden {
+    display: none;
+    /*giving this class name will hide the object*/
+}
