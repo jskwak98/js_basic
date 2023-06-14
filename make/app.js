@@ -21,7 +21,6 @@ function onLoginBtnClick(){
 
 //loginButton.addEventListener("click", onLoginBtnClick);
 
-<<<<<<< HEAD
 function onLoginSubmit(event){
     event.preventDefault();
     const username = loginInput.value;
@@ -32,15 +31,3 @@ function onLoginSubmit(event){
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);
-=======
-const link = document.querySelector("a");
-
-function handleLinkClick(event){
-    event.preventDefault();
-    console.log(event);
-    //PointerEvent returned with the point info where you clicked
-    alert("clicked");
-}
-
-link.addEventListener("click", handleLinkClick);
->>>>>>> 9484bba38247b29a948dfbae402696a25a9a2ec8
