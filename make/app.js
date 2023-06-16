@@ -2,34 +2,44 @@ const loginForm = document.querySelector("#login-form");
 //find form
 const loginInput = loginForm.querySelector("input");
 const loginButton = loginForm.querySelector("button");
-const greeting = document.querySelector("#greeting")
+const greeting = document.querySelector("#greeting");
+const logoutBtn = document.querySelector("#logout");
 // then find elements inside the div form
 
 const HIDDEN_CLASSNAME = "hidden";
-
-function onLoginBtnClick(){
-    // if the loginButton is just Button
-    const val = loginInput.value;
-    if (val === ""){
-        alert("Please enter username");
-    } else if (val.length > 15){
-        alert("Username is too long");
-    } else {
-        console.log("hello", val);
-    }
-}
-
-//loginButton.addEventListener("click", onLoginBtnClick);
+const USERNAME = "username";
 
 function onLoginSubmit(event){
     event.preventDefault();
     const username = loginInput.value;
-    localStorage.setItem("username", username);
+    localStorage.setItem(USERNAME, username);
     //Entering the username
     loginForm.classList.add(HIDDEN_CLASSNAME);
     //greeting.innerText = "Hello " + username;
     greeting.innerText = `Hello ${username}`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
+    paintGreetings(username);
+}
+
+function paintGreetings(savedUsername){
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.innerText = `Hello ${savedUsername}`;
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);
+
+const savedUsername = localStorage.getItem(USERNAME);
+
+if (savedUsername == null){
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+    paintGreetings(savedUsername);
+}
+
+function onLogoutClicked(event){
+    localStorage.removeItem("username");
+    location.reload();
+}
+
+logoutBtn.addEventListener("click", onLogoutClicked);
