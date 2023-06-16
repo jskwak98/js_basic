@@ -24,6 +24,7 @@ function onLoginBtnClick(){
 function onLoginSubmit(event){
     event.preventDefault();
     const username = loginInput.value;
+    localStorage.setItem("username", username);
     //Entering the username
     loginForm.classList.add(HIDDEN_CLASSNAME);
     //greeting.innerText = "Hello " + username;
