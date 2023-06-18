@@ -1,8 +1,15 @@
 const clock = document.querySelector("#clock");
 
-function sayHello() {
+
+function getClock() {
     //interval
-    console.log("hello");
+    const date = new Date();
+    clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
 }
 
-setInterval(sayHello, 1000);
+getClock();
+setInterval(getClock, 1000);
+
+//set timeout, function executes after Xms.
+
+//Date object is used for time calling
