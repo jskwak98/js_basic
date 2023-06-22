@@ -1,6 +1,13 @@
 const todoForm = document.getElementById("todo-form");
 const todoList = document.getElementById("todo-list");
-const todoInput = todoForm.querySelector("input")
+const todoInput = todoForm.querySelector("input");
+
+//JSON.stringify(object) to save our todo lists
+const todos = [];
+
+function saveTodos(){
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 function deleteTodo(event){
     // to recognize which button is clicked among buttons
@@ -30,6 +37,7 @@ function onTodoSubmit(event) {
     event.preventDefault();
     const newTodo = todoInput.value;
     todoInput.value = "";
+    todos.push(newTodo);
     paintTodo(newTodo);
 }
 
