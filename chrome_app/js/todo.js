@@ -15,14 +15,18 @@ function deleteTodo(event){
     // to recognize which button is clicked among buttons
     // get info from the event
     const toDel = event.target.parentElement;
+    deleteID = toDel.id;
     toDel.remove();
+    //localStorage.getItem(TODOS_KEY).
+    //localStorage
 }
 
-function paintTodo(newTodo) {
+function paintTodo(newTodoObject) {
     //when you add todo this will paint new todo on page
     const listElementWrapper = document.createElement("li");
     const listElement = document.createElement("span");
-    listElement.innerText = newTodo;
+    listElement.innerText = newTodoObject.text;
+    listElement.id = newTodoObject.id;
 
     //create event listener for the list button
     const listButton = document.createElement("button");
@@ -39,8 +43,12 @@ function onTodoSubmit(event) {
     event.preventDefault();
     const newTodo = todoInput.value;
     todoInput.value = "";
-    todos.push(newTodo);
-    paintTodo(newTodo);
+    const newTodoObject = {
+        id: Date.now(),
+        text:newTodo,
+    };
+    todos.push(newTodoObject);
+    paintTodo(newTodoObject);
     saveTodos();
 }
 
