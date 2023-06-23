@@ -15,10 +15,10 @@ function deleteTodo(event){
     // to recognize which button is clicked among buttons
     // get info from the event
     const toDel = event.target.parentElement;
-    deleteID = toDel.id;
+    deleteID = Number(toDel.id);
+    todos = todos.filter(todo => todo.id !== deleteID);
     toDel.remove();
-    //localStorage.getItem(TODOS_KEY).
-    //localStorage
+    saveTodos();
 }
 
 function paintTodo(newTodoObject) {
@@ -26,7 +26,7 @@ function paintTodo(newTodoObject) {
     const listElementWrapper = document.createElement("li");
     const listElement = document.createElement("span");
     listElement.innerText = newTodoObject.text;
-    listElement.id = newTodoObject.id;
+    listElementWrapper.id = newTodoObject.id;
 
     //create event listener for the list button
     const listButton = document.createElement("button");
