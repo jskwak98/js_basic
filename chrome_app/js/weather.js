@@ -7,7 +7,16 @@ function onGeoSuccess(position){
     const longitude = position.coords.longitude;
     // needs an openweathermap.org's account
     // needs geocoding api 
-    console.log(`You live in ${latitude} ${longitude}`);
+    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+    // you need some time until the reply comes
+    // fetch url then, give response
+    fetch(url).then(response => response.json()).then(data => {
+        const weather = document.querySelector("#weather span:first-child");
+        const city = document.querySelector("#weather span:last-child");
+        city.innerText = data.name;
+        weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+    });
+
 }
 
 function onGeoError(){
